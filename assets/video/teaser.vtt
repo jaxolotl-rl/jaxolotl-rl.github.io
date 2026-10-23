@@ -1,0 +1,26 @@
+WEBVTT
+
+00:00.000 --> 00:05.600
+Zero-shot multi-task reinforcement learning, at scale.
+Deliver a crate to green and a vase to red.
+
+00:05.600 --> 00:08.000
+Complex tasks, expressed in temporal logic:
+visit green and yellow repeatedly, and purple at least once.
+
+00:08.000 --> 00:12.300
+Compile the formal instruction into an automaton.
+
+00:12.300 --> 00:19.000
+Then execute: the agent navigates between coloured zones.
+
+00:19.000 --> 00:23.000
+Faster with JAX: accelerate learning and evaluation.
+
+00:23.000 --> 00:28.300
+Scale up to many parallel environments:
+navigation, object delivery, and robot control.
+
+00:28.300 --> 00:33.000
+Jaxolotl. Multi-task RL with formal instructions. Powered by JAX.
+github.com/mathiasj33/jaxolotl · arxiv.org/abs/2609.38065
