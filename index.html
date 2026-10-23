@@ -6,12 +6,12 @@
     <meta name="theme-color" content="#07131d" />
     <meta
       name="description"
-      content="Jaxolotl: a unified, high-performance benchmark suite for LTL-based multi-task reinforcement learning. Six algorithms, four environments, and up to 220× faster training with JAX."
+      content="Jaxolotl: a unified high-performance benchmark suite for LTL-based multi-task reinforcement learning."
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Jaxolotl — Multi-task RL with formal instructions. Powered by JAX."
+      content="Jaxolotl: A Unified High-Performance Benchmark Suite for LTL-Based Multi-Task RL"
     />
     <meta
       property="og:description"
@@ -26,14 +26,14 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link
       rel="preload"
-      href="assets/fonts/inter-regular.woff2"
+      href="assets/fonts/noto-sans-regular.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/fonts/inter-bold.woff2"
+      href="assets/fonts/noto-sans-bold.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="original-design">
     <a class="skip-link" href="#main">Skip to content</a>
     <svg
       class="icon-definitions"
@@ -56,9 +56,6 @@
       <symbol id="icon-code" viewBox="0 0 24 24">
         <path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16" />
       </symbol>
-      <symbol id="icon-arrow" viewBox="0 0 24 24">
-        <path d="M5 12h14m-6-6 6 6-6 6" />
-      </symbol>
       <symbol id="icon-expand" viewBox="0 0 24 24">
         <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" />
       </symbol>
@@ -68,633 +65,143 @@
       </symbol>
     </svg>
 
-    <header class="site-header">
-      <div class="nav-shell">
-        <a class="brand" href="#top" aria-label="Jaxolotl home"
-          ><img
-            src="assets/images/logo.webp"
-            alt=""
-            width="34"
-            height="34"
-          /><span>jaxolotl<span class="brand-dot">.</span></span></a
-        >
-        <nav aria-label="Main navigation">
-          <a href="#abstract">Abstract</a>
-          <a href="#framework">Framework</a>
-          <a href="#performance">Performance</a>
-          <a href="#visualisations">Visualisations</a>
-          <a href="#citation">Citation</a>
-        </nav>
-        <a
-          class="nav-code"
-          href="https://github.com/mathiasj33/jaxolotl"
-          aria-label="Jaxolotl on GitHub"
-          ><svg class="icon"><use href="#icon-code" /></svg><span>Code</span
-          ><span aria-hidden="true">↗</span></a
-        >
+
+    <header class="project-header" id="top">
+      <div class="content">
+        <h1 id="project-title">
+          Jaxolotl: A Unified High-Performance Benchmark Suite<br class="desktop-break" /> for LTL-Based Multi-Task RL
+        </h1>
+        <p class="authors">
+          <span>Mathias Jackermeier<sup>* 1</sup></span>,
+          <span>Jacques Cloete<sup>* 2</sup></span>,
+          <span>Alessandro Abate<sup>1</sup></span>
+        </p>
+        <p class="affiliations"><span><sup>1</sup> Department of Computer Science</span><span><sup>2</sup> Oxford Robotics Institute</span></p>
+        <p class="university">University of Oxford</p>
+        <p class="equal-contribution">* Equal contribution</p>
+        <div class="project-links">
+          <a href="https://arxiv.org/pdf/2609.38065" target="_blank"><svg class="icon" aria-hidden="true"><use href="#icon-paper" /></svg>Paper</a>
+          <a href="https://github.com/mathiasj33/jaxolotl" target="_blank"><svg class="icon" aria-hidden="true"><use href="#icon-code" /></svg>GitHub</a>
+        </div>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="project-title">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-inner">
-          <p class="eyebrow">
-            <span class="status-dot" aria-hidden="true"></span> University of
-            Oxford <span class="eyebrow-divider">/</span> 2026
-          </p>
-          <h1 id="project-title">
-            <span class="wordmark">jaxolotl<span>.</span></span
-            ><span class="paper-title"
-              >A Unified High-Performance Benchmark Suite<br
-                class="desktop-break"
-              />
-              for LTL-Based Multi-Task RL</span
-            >
-          </h1>
-          <p class="authors">
-            <span class="author">Mathias Jackermeier<sup>* 1</sup></span
-            ><span class="author-separator">,</span>
-            <span class="author">Jacques Cloete<sup>* 2</sup></span
-            ><span class="author-separator">,</span>
-            <span class="author">Alessandro Abate<sup>1</sup></span>
-          </p>
-          <div class="affiliations">
-            <span><sup>1</sup> Department of Computer Science</span
-            ><span><sup>2</sup> Oxford Robotics Institute</span>
-          </div>
-          <p class="equal-contribution">
-            University of Oxford <span aria-hidden="true">·</span> * Equal
-            contribution
-          </p>
-          <div class="hero-links">
-            <a class="button button-primary" href="assets/paper.pdf"
-              ><svg class="icon"><use href="#icon-paper" /></svg> Read the paper
-              <span aria-hidden="true">↗</span></a
-            >
-            <a
-              class="button button-secondary"
-              href="https://github.com/mathiasj33/jaxolotl"
-              ><svg class="icon"><use href="#icon-code" /></svg> Code on GitHub
-              <span aria-hidden="true">↗</span></a
-            >
-            <a
-              class="text-link arxiv-link"
-              href="https://arxiv.org/abs/2609.38065"
-              >arXiv <span aria-hidden="true">↗</span></a
-            >
+      <section class="teaser-section" aria-label="Project video">
+        <div class="content">
+          <div class="video-frame" id="teaser-frame">
+            <video id="teaser" controls playsinline preload="none" poster="assets/images/teaser-poster.webp" width="1920" height="1080" aria-label="Jaxolotl project video">
+              <source src="assets/video/teaser.mp4" type="video/mp4" />
+              <track kind="captions" src="assets/video/teaser.vtt" srclang="en" label="English descriptions" />
+              Your browser does not support embedded video. <a href="assets/video/teaser.mp4">Download the video.</a>
+            </video>
+            <button type="button" class="teaser-play" id="teaser-play" hidden aria-label="Play the project video">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z" /></svg>
+            </button>
           </div>
         </div>
       </section>
 
-      <div class="content-shell">
-        <section class="teaser-section" aria-label="Project trailer">
-          <div class="video-frame" id="teaser-frame">
-            <video
-              id="teaser"
-              controls
-              playsinline
-              preload="none"
-              poster="assets/images/teaser-poster.webp"
-              width="1920"
-              height="1080"
-              aria-label="Jaxolotl project teaser: multi-task reinforcement learning with formal instructions"
-            >
-              <source src="assets/video/teaser.mp4" type="video/mp4" />
-              <track
-                kind="captions"
-                src="assets/video/teaser.vtt"
-                srclang="en"
-                label="English descriptions"
-              />
-              Your browser does not support embedded video.
-              <a href="assets/video/teaser.mp4">Download the trailer.</a>
-            </video>
-            <button
-              type="button"
-              class="teaser-play"
-              id="teaser-play"
-              hidden
-              aria-label="Play the 33-second project trailer"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m9 5 11 7-11 7z" />
-              </svg>
-            </button>
-            <span class="video-corner-label" aria-hidden="true"
-              >THE PROJECT IN 33 SECONDS</span
-            >
-          </div>
-          <div class="teaser-caption">
-            <p>
-              Multi-task RL with formal instructions.
-              <span>Powered by JAX.</span>
-            </p>
-            <a href="assets/video/teaser.mp4" download
-              >Download trailer <span aria-hidden="true">↓</span></a
-            >
-          </div>
-          <details class="transcript">
-            <summary>Trailer description</summary>
-            <p>
-              A warehouse agent delivers objects to coloured regions. A temporal
-              logic instruction is compiled into an automaton, then executed in
-              a continuous navigation environment: visit green and yellow
-              repeatedly, and visit purple at least once. JAX accelerates
-              training and evaluation. The view expands to a grid of warehouse,
-              navigation, and Franka robot environments running in parallel.
-            </p>
-          </details>
-        </section>
+      <section class="section abstract-section" id="abstract" aria-labelledby="abstract-title">
+        <div class="content">
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+          <h2 id="abstract-title">Abstract</h2>
+          <p>Linear temporal logic (LTL) provides a precise and structured formalism for specifying instructions to generalist reinforcement learning (RL) agents. However, differences in implementations, task distributions, and evaluation protocols make existing methods difficult to compare, while high computational costs limit the scale and statistical reliability of experiments.</p>
+          <p>We introduce Jaxolotl, a unified high-performance benchmark suite for multi-task LTL-RL. It provides a modular, end-to-end JAX implementation of six representative algorithms and four environments, together with curated task suites and a standardised evaluation protocol. Precompiling symbolic task representations into static arrays enables fully JIT-compiled training and evaluation, with end-to-end training speedups of up to 220×. Our systematic comparison reveals complementary strengths and limitations: general methods capable of non-myopic reasoning struggle as the number of propositions grows, while methods with stronger scaling rely on environment-specific assumptions and suffer from myopia.</p>
+        </div>
+      </section>
 
-        <div class="highlights" role="group" aria-label="Project highlights">
-          <div>
-            <span class="highlight-number">6</span
-            ><span>unified algorithms</span>
-          </div>
-          <div>
-            <span class="highlight-number">4</span
-            ><span>benchmark environments</span>
-          </div>
-          <div>
-            <span class="highlight-number mint">220<span>×</span></span
-            ><span>training speedup, up to</span>
-          </div>
-          <div>
-            <span class="highlight-number lavender">79<span>×</span></span
-            ><span>evaluation speedup, up to</span>
+      <section class="section" id="framework" aria-labelledby="framework-title">
+        <div class="content">
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+          <h2 id="framework-title">Overview</h2>
+          <figure>
+            <button type="button" class="figure-button" data-figure="assets/figures/overview-outline.svg" data-title="Jaxolotl overview" aria-label="Enlarge the Jaxolotl overview diagram">
+              <img src="assets/figures/overview-outline.svg" width="1016" height="400" loading="lazy" alt="Jaxolotl overview: LTL instructions and curriculum tasks are compiled into static representations. Task and observation encoders feed an actor–critic policy that interacts with a JAX environment. Methods share LTL utilities, RL algorithms, and neural modules." />
+            </button>
+            <figcaption>Jaxolotl brings task representations, policy architectures, and environments into a common framework. Symbolic structures and environment resets are precomputed to enable end-to-end JIT compilation.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="performance" aria-labelledby="performance-title">
+        <div class="content">
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+          <h2 id="performance-title">Performance gains</h2>
+          <figure>
+            <button type="button" class="figure-button" data-figure="assets/figures/training-muted.svg" data-mobile-figure="assets/figures/training-mobile-muted.svg" data-title="End-to-end training times" aria-label="Enlarge the training time comparison">
+              <picture>
+                <source media="(max-width: 600px)" srcset="assets/figures/training-mobile-muted.svg" />
+                <img src="assets/figures/training-muted.svg" width="940" height="450" loading="lazy" alt="Training wall time on a logarithmic scale versus 1 to 10 independent seeds. At 10 seeds, DeepLTL takes 14.0 hours in the reference and 8.2 minutes in Jaxolotl, a 102-fold speedup. GenZ-LTL takes 13.4 hours versus 3.7 minutes, a 220-fold speedup." />
+              </picture>
+            </button>
+            <figcaption>End-to-end training times on ZoneEnv, including JIT compilation. Compared with the original implementations, Jaxolotl trains ten independent seeds up to 102× faster for DeepLTL and 220× faster for GenZ-LTL. Measurements use an NVIDIA RTX 5070 Ti; see the <a href="https://arxiv.org/pdf/2609.38065" target="_blank">paper</a> for details.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="visualisations" aria-labelledby="visualisations-title">
+        <div class="content">
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+          <h2 id="visualisations-title">Visualisations</h2>
+          <figure>
+            <div class="policy-rollouts">
+              <div>
+                <h3>Warehouse</h3>
+                <div class="video-frame">
+                  <video controls muted playsinline preload="none" width="1920" height="1080"
+                    poster="assets/video/rollouts/warehouse-poster.jpg"
+                    data-mobile-poster="assets/video/rollouts/warehouse-poster-mobile.jpg"
+                    aria-label="Warehouse policy rollouts: crate delivery, delivery and stay, and patrol while carrying a crate">
+                    <source src="assets/video/rollouts/warehouse-rollouts-mobile.mp4" media="(max-width: 600px)" type="video/mp4" />
+                    <source src="assets/video/rollouts/warehouse-rollouts.mp4" type="video/mp4" />
+                    Your browser does not support embedded video. <a href="assets/video/rollouts/warehouse-rollouts.mp4">Download the warehouse rollouts.</a>
+                  </video>
+                </div>
+              </div>
+              <div>
+                <h3>Franka</h3>
+                <div class="video-frame">
+                  <video controls muted playsinline preload="none" width="1920" height="1080"
+                    poster="assets/video/rollouts/franka-poster.jpg"
+                    data-mobile-poster="assets/video/rollouts/franka-poster-mobile.jpg"
+                    aria-label="Franka policy rollouts: ordered reaching with a conditional obligation, green-blue patrol, and yellow followed by recurring red">
+                    <source src="assets/video/rollouts/franka-rollouts-mobile.mp4" media="(max-width: 600px)" type="video/mp4" />
+                    <source src="assets/video/rollouts/franka-rollouts.mp4" type="video/mp4" />
+                    Your browser does not support embedded video. <a href="assets/video/rollouts/franka-rollouts.mp4">Download the Franka rollouts.</a>
+                  </video>
+                </div>
+              </div>
+            </div>
+            <figcaption>Zero-shot rollouts of trained StructLTL and GenZ-LTL policies on unseen tasks in the Warehouse and Franka-4 environments, respectively.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section citation-section" id="citation" aria-labelledby="citation-title">
+        <div class="content">
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+          <h2 id="citation-title">BibTeX</h2>
+          <div class="citation-panel">
+            <button type="button" id="copy-citation" class="copy-button" hidden><svg class="icon" aria-hidden="true"><use href="#icon-copy" /></svg><span>Copy BibTeX</span></button>
+            <pre tabindex="0" aria-label="BibTeX citation"><code id="bibtex">@article{jaxolotl,
+  title   = {{Jaxolotl}: A Unified High-Performance Benchmark Suite for {LTL}-Based Multi-Task {RL}},
+  author  = {Jackermeier, Mathias and Cloete, Jacques and Abate, Alessandro},
+  journal = {arXiv preprint arXiv:2609.38065},
+  year    = {2026}
+}</code></pre>
+            <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
           </div>
         </div>
-
-        <section
-          class="section abstract-section"
-          id="abstract"
-          aria-labelledby="abstract-title"
-        >
-          <div class="section-heading">
-            <p class="section-index">01 <span>/</span> THE IDEA</p>
-            <h2 id="abstract-title">Abstract</h2>
-          </div>
-          <div class="abstract-copy">
-            <p class="abstract-lead">
-              One framework for learning to follow formal instructions.<br
-                class="desktop-break"
-              />
-              From symbolic tasks to accelerated, end-to-end training.
-            </p>
-            <p>
-              Training agents to follow arbitrary instructions is an important
-              goal of multi-task reinforcement learning (RL). Linear temporal
-              logic (LTL) provides a precise and structured formalism for
-              specifying instructions to agents, and has been successfully
-              adopted for training generalist multi-task policies. However,
-              differences in implementations, task distributions, and evaluation
-              protocols make existing methods difficult to compare, while high
-              computational costs limit the scale and statistical reliability of
-              experiments.
-            </p>
-            <p>
-              We introduce <strong>Jaxolotl</strong>, a unified high-performance
-              benchmark suite for multi-task LTL-RL to address these concerns.
-              Jaxolotl provides a modular, end-to-end JAX implementation of
-              <strong
-                >six representative algorithms and four environments</strong
-              >, together with newly curated task suites and a standardised,
-              statistically robust evaluation protocol. By precompiling symbolic
-              task representations into static arrays, Jaxolotl enables fully
-              JIT-compiled training and evaluation, achieving
-              <strong>end-to-end speedups of up to 220×</strong> and supporting
-              controlled comparisons at substantially greater experimental
-              scale.
-            </p>
-            <p>
-              We use this framework to systematically evaluate existing
-              approaches, revealing complementary strengths and limitations:
-              general methods capable of non-myopic reasoning struggle as the
-              number of propositions grows, while methods with stronger scaling
-              rely on environment-specific assumptions and suffer from myopia.
-            </p>
-          </div>
-        </section>
-
-        <section
-          class="section"
-          id="framework"
-          aria-labelledby="framework-title"
-        >
-          <div class="section-heading">
-            <p class="section-index">02 <span>/</span> THE FRAMEWORK</p>
-            <h2 id="framework-title">
-              Symbolic tasks.<br />Accelerated learning.
-            </h2>
-            <p class="section-intro">
-              Precompile the dynamic structures.<br />JIT-compile the entire
-              learning loop.
-            </p>
-          </div>
-          <figure class="overview-figure figure-panel">
-            <button
-              type="button"
-              class="figure-expand"
-              data-figure="assets/figures/overview.svg"
-              data-title="Jaxolotl framework"
-              aria-label="Enlarge the Jaxolotl framework diagram"
-            >
-              <svg class="icon"><use href="#icon-expand" /></svg>
-            </button>
-            <img
-              src="assets/figures/overview.svg"
-              width="1016"
-              height="387"
-              loading="lazy"
-              alt="Jaxolotl architecture: user instructions or curriculum tasks are parsed, normalised, and compiled into static task representations. A task encoder and observation encoder feed an actor–critic policy. The policy interacts with a JAX environment using precomputed resets. LTL utilities, RL algorithms, and neural modules are shared."
-            />
-            <figcaption>
-              <span class="figure-number">FIG. 01</span> A common interface for
-              task representations, policy architectures, and environments.
-              Symbolic structures and environment resets are precomputed to
-              enable end-to-end JIT compilation.
-            </figcaption>
-          </figure>
-          <div class="framework-notes">
-            <div>
-              <span class="note-number yellow">01</span>
-              <h3>Compile the instructions</h3>
-              <p>
-                Turn LTL formulae, automata, and syntax trees into static arrays
-                before training begins.
-              </p>
-            </div>
-            <div>
-              <span class="note-number lavender">02</span>
-              <h3>Share the learning machinery</h3>
-              <p>
-                Compare six methods using common policy components, RL
-                algorithms, and evaluation protocols.
-              </p>
-            </div>
-            <div>
-              <span class="note-number mint">03</span>
-              <h3>Run in parallel with JAX</h3>
-              <p>
-                Vectorise environments and independent seeds on the GPU,
-                including the full training and evaluation loop.
-              </p>
-            </div>
-          </div>
-          <div class="method-strip">
-            <span class="strip-label">IN ONE FRAMEWORK</span>
-            <p>
-              LTL2Action <span>·</span> GCRL-LTL <span>·</span> DeepLTL
-              <span>·</span> GenZ-LTL <span>·</span> SemLTL
-              <span>·</span> StructLTL
-            </p>
-          </div>
-        </section>
-
-        <section
-          class="section"
-          id="performance"
-          aria-labelledby="performance-title"
-        >
-          <div class="section-heading">
-            <p class="section-index">03 <span>/</span> PERFORMANCE</p>
-            <h2 id="performance-title">From hours to minutes.</h2>
-            <p class="section-intro">
-              End-to-end timing on ZoneEnv, measured against the original
-              DeepLTL and GenZ-LTL implementations.
-              <strong>JIT compilation included.</strong>
-            </p>
-          </div>
-          <div class="performance-callout">
-            <p>
-              <span class="callout-label">GenZ-LTL · 10 training seeds</span
-              ><span class="time-before">13.4 hours</span
-              ><svg class="icon"><use href="#icon-arrow" /></svg
-              ><span class="time-after">3.7 minutes</span>
-            </p>
-            <span class="speedup-badge">220× faster</span>
-          </div>
-          <div class="timing-grid">
-            <figure class="timing-figure figure-panel">
-              <div class="plot-heading">
-                <div>
-                  <p class="plot-kicker mint">TRAINING</p>
-                  <h3>Scale the experiment.</h3>
-                </div>
-                <span class="plot-stat">up to <strong>220×</strong></span>
-              </div>
-              <button
-                type="button"
-                class="plot-image-button"
-                data-figure="assets/figures/training.svg"
-                data-title="End-to-end training times"
-                aria-label="Enlarge the training speedup plot"
-              >
-                <picture
-                  ><source
-                    media="(max-width: 600px)"
-                    srcset="assets/figures/training-mobile.svg" />
-                  <img
-                    src="assets/figures/training.svg"
-                    width="940"
-                    height="450"
-                    loading="lazy"
-                    alt="Training wall time on a logarithmic scale versus 1 to 10 seeds. At 10 seeds, DeepLTL takes 14.0 hours in the reference and 8.2 minutes in Jaxolotl, a 102-fold speedup. GenZ-LTL takes 13.4 hours versus 3.7 minutes, a 220-fold speedup."
-                /></picture>
-              </button>
-              <figcaption>
-                <span class="figure-number">FIG. 02</span> Train 10 independent
-                policies in parallel. DeepLTL: <strong>102×</strong> faster.
-                GenZ-LTL: <strong>220×</strong> faster.
-              </figcaption>
-            </figure>
-            <figure class="timing-figure figure-panel">
-              <div class="plot-heading">
-                <div>
-                  <p class="plot-kicker lavender">EVALUATION</p>
-                  <h3>Make robust evaluation practical.</h3>
-                </div>
-                <span class="plot-stat">up to <strong>79×</strong></span>
-              </div>
-              <button
-                type="button"
-                class="plot-image-button"
-                data-figure="assets/figures/evaluation.svg"
-                data-title="End-to-end evaluation times"
-                aria-label="Enlarge the evaluation speedup plot"
-              >
-                <picture
-                  ><source
-                    media="(max-width: 600px)"
-                    srcset="assets/figures/evaluation-mobile.svg" />
-                  <img
-                    src="assets/figures/evaluation.svg"
-                    width="940"
-                    height="450"
-                    loading="lazy"
-                    alt="Evaluation wall time on a logarithmic scale versus 1 to 10 seeds. At 10 seeds, DeepLTL takes 56.8 minutes in the reference and 43 seconds in Jaxolotl, a 79-fold speedup. GenZ-LTL takes 17.2 minutes versus 31 seconds, a 34-fold speedup."
-                /></picture>
-              </button>
-              <figcaption>
-                <span class="figure-number">FIG. 03</span> Evaluate 10
-                independently trained policies. DeepLTL:
-                <strong>79×</strong> faster. GenZ-LTL:
-                <strong>34×</strong> faster.
-              </figcaption>
-            </figure>
-          </div>
-          <details class="measurement-details">
-            <summary>Hardware and measurement details</summary>
-            <p>
-              All timings use an NVIDIA GeForce RTX 5070 Ti (16 GiB), an Intel
-              Core i5-13600K, and 32 GiB of RAM. Jaxolotl vectorises independent
-              seeds on the GPU. For each number of seeds, the references use the
-              fastest measured scheduling configuration, including concurrent
-              runs where beneficial. Jaxolotl timings include JIT compilation.
-              See Section 5.1 and Appendix G.1 of the
-              <a href="assets/paper.pdf">paper</a>.
-            </p>
-          </details>
-        </section>
-
-        <section
-          class="section"
-          id="visualisations"
-          aria-labelledby="visualisations-title"
-        >
-          <div class="section-heading">
-            <p class="section-index">04 <span>/</span> POLICY VISUALISATIONS</p>
-            <h2 id="visualisations-title">
-              Formal instructions.<br />Behaviour you can see.
-            </h2>
-            <p class="section-intro">
-              From object delivery to robot control: a preview of the
-              environments and tasks. Recorded policy videos will follow.
-            </p>
-          </div>
-          <div class="demo-grid">
-            <!-- To add a rollout, replace .demo-still with a <video controls muted loop playsinline> and remove the placeholder badge. -->
-            <figure class="demo-card">
-              <div class="demo-still">
-                <img
-                  src="assets/images/warehouse-delivery.webp"
-                  width="500"
-                  height="375"
-                  loading="lazy"
-                  alt="Warehouse environment with crates, vases, and coloured delivery regions; still image placeholder."
-                /><span class="placeholder-badge"
-                  ><span aria-hidden="true">◷</span> Video coming soon</span
-                ><span class="demo-environment">WAREHOUSE <span>01</span></span>
-              </div>
-              <figcaption>
-                <p class="demo-type mint">OBJECT DELIVERY</p>
-                <h3>Two objects. Two destinations.</h3>
-                <p>
-                  Deliver a crate to the <span class="mint">green</span> region
-                  and a vase to the <span class="coral">red</span> region.
-                </p>
-                <div
-                  class="task-formula"
-                  role="math"
-                  aria-label="Eventually crate at green and eventually vase at red"
-                >
-                  F(crate_at_<span class="mint">green</span>) ∧ F(vase_at_<span
-                    class="coral"
-                    >red</span
-                  >)
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="demo-card">
-              <div class="demo-still">
-                <img
-                  src="assets/images/warehouse-sequence.webp"
-                  width="500"
-                  height="375"
-                  loading="lazy"
-                  alt="Another recorded warehouse scene with objects and coloured regions; still image placeholder."
-                /><span class="placeholder-badge"
-                  ><span aria-hidden="true">◷</span> Video coming soon</span
-                ><span class="demo-environment">WAREHOUSE <span>02</span></span>
-              </div>
-              <figcaption>
-                <p class="demo-type mint">SEQUENTIAL DELIVERY</p>
-                <h3>The right order matters.</h3>
-                <p>
-                  Deliver a crate to <span class="mint">green</span>, then
-                  deliver a vase to <span class="lavender">purple</span>.
-                </p>
-                <div
-                  class="task-formula"
-                  role="math"
-                  aria-label="Eventually crate at green and then eventually vase at purple"
-                >
-                  F(crate_at_<span class="mint">green</span> ∧ F(vase_at_<span
-                    class="lavender"
-                    >purple</span
-                  >))
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="demo-card">
-              <div class="demo-still">
-                <img
-                  src="assets/images/franka-reach-avoid.webp"
-                  width="500"
-                  height="375"
-                  loading="lazy"
-                  alt="Franka robot arm above a tabletop with coloured target zones; still image placeholder."
-                /><span class="placeholder-badge"
-                  ><span aria-hidden="true">◷</span> Video coming soon</span
-                ><span class="demo-environment"
-                  >FRANKAZONEENV <span>01</span></span
-                >
-              </div>
-              <figcaption>
-                <p class="demo-type lavender">REACH–AVOID CONTROL</p>
-                <h3>A goal, with a constraint.</h3>
-                <p>
-                  Reach the <span class="mint">green</span> zone while avoiding
-                  the <span class="coral">red</span> zone along the way.
-                </p>
-                <div
-                  class="task-formula"
-                  role="math"
-                  aria-label="Not red until green"
-                >
-                  ¬<span class="coral">red</span> U
-                  <span class="mint">green</span>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="demo-card">
-              <div class="demo-still">
-                <img
-                  src="assets/images/franka-recurrence.webp"
-                  width="500"
-                  height="375"
-                  loading="lazy"
-                  alt="Franka robot arm in another configuration among coloured tabletop zones; still image placeholder."
-                /><span class="placeholder-badge"
-                  ><span aria-hidden="true">◷</span> Video coming soon</span
-                ><span class="demo-environment"
-                  >FRANKAZONEENV <span>02</span></span
-                >
-              </div>
-              <figcaption>
-                <p class="demo-type lavender">INFINITE-HORIZON TASKS</p>
-                <h3>Keep coming back.</h3>
-                <p>
-                  Visit <span class="mint">green</span> and
-                  <span class="yellow">yellow</span> again and again, and
-                  <span class="lavender">purple</span> at least once.
-                </p>
-                <div
-                  class="task-formula"
-                  role="math"
-                  aria-label="Always eventually green, always eventually yellow, and eventually purple"
-                >
-                  GF <span class="mint">green</span> ∧ GF
-                  <span class="yellow">yellow</span> ∧ F
-                  <span class="lavender">purple</span>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-          <p class="demo-footnote">
-            Environment stills are from the teaser recordings. Task descriptions
-            illustrate the planned videos; the final rollouts will be added
-            here.
-          </p>
-          <div class="logic-key">
-            <span class="strip-label">A LITTLE LTL</span
-            ><span><code>F</code> eventually</span
-            ><span><code>G</code> always</span><span><code>U</code> until</span
-            ><span><code>∧</code> and</span><span><code>¬</code> not</span>
-          </div>
-        </section>
-
-        <section
-          class="section citation-section"
-          id="citation"
-          aria-labelledby="citation-title"
-        >
-          <div class="section-heading">
-            <p class="section-index">05 <span>/</span> CITE THIS WORK</p>
-            <h2 id="citation-title">Citation</h2>
-            <p class="section-intro">
-              If you find Jaxolotl useful in your research, please consider
-              citing our paper.
-            </p>
-            <a class="text-link" href="assets/citation.bib" download
-              >Download BibTeX <span aria-hidden="true">↓</span></a
-            >
-          </div>
-          <div class="citation-panel">
-            <div class="citation-toolbar">
-              <span>BibTeX</span
-              ><button
-                type="button"
-                id="copy-citation"
-                class="copy-button"
-                hidden
-              >
-                <svg class="icon"><use href="#icon-copy" /></svg
-                ><span>Copy citation</span>
-              </button>
-            </div>
-            <pre
-              tabindex="0"
-              aria-label="BibTeX citation"
-            ><code id="bibtex">@article{jackermeier2026jaxolotl,
-  title   = {{Jaxolotl}: A Unified High-Performance
-             Benchmark Suite for {LTL}-Based Multi-Task {RL}},
-  author  = {Jackermeier, Mathias and Cloete, Jacques
-             and Abate, Alessandro},
-  journal = {arXiv preprint arXiv:2609.38065},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2609.38065}
-}</code></pre>
-            <p
-              id="copy-status"
-              class="sr-only"
-              role="status"
-              aria-live="polite"
-            ></p>
-          </div>
-        </section>
-      </div>
+      </section>
     </main>
-
-    <footer class="site-footer">
-      <div class="content-shell footer-inner">
-        <a class="brand" href="#top"
-          >jaxolotl<span class="brand-dot">.</span></a
-        >
-        <p>
-          Multi-task RL with formal instructions. <span>Powered by JAX.</span>
-        </p>
-        <a href="https://github.com/mathiasj33/jaxolotl"
-          >GitHub <span aria-hidden="true">↗</span></a
-        >
-      </div>
-    </footer>
 
     <dialog id="figure-dialog" aria-labelledby="figure-dialog-title">
       <div class="dialog-toolbar">
         <h2 id="figure-dialog-title">Figure</h2>
-        <button
-          type="button"
-          id="close-figure"
-          class="close-button"
-          aria-label="Close enlarged figure"
-        >
-          Close <span aria-hidden="true">×</span>
-        </button>
+        <button type="button" id="close-figure" class="close-button" aria-label="Close enlarged figure">Close <span aria-hidden="true">×</span></button>
       </div>
-      <img src="assets/figures/overview.svg" id="dialog-image" alt="" />
-      <p>Press Escape or click outside the figure to close.</p>
+      <img src="assets/figures/overview-outline.svg" id="dialog-image" alt="" />
     </dialog>
   </body>
 </html>

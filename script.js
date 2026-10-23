@@ -1,5 +1,30 @@
 "use strict";
 
+// Match the poster to the portrait/landscape source selected by the browser.
+const rolloutMobile = window.matchMedia("(max-width: 600px)");
+document.querySelectorAll(".policy-rollouts video").forEach((video) => {
+  const desktopPoster = video.poster;
+  const updatePoster = () => {
+    video.poster = rolloutMobile.matches
+      ? video.dataset.mobilePoster
+      : desktopPoster;
+  };
+  updatePoster();
+  rolloutMobile.addEventListener("change", () => {
+    updatePoster();
+    // Reselect the source on rotation/resizing and restore playback when possible.
+    const position = video.currentTime;
+    const resume = !video.paused && !video.ended;
+    if (position > 0) {
+      video.addEventListener("loadedmetadata", () => {
+        video.currentTime = Math.min(position, video.duration);
+      }, { once: true });
+    }
+    video.load();
+    if (resume) video.play().catch(() => {});
+  });
+});
+
 // All content and native video controls remain usable without JavaScript.
 const teaser = document.querySelector("#teaser");
 const playButton = document.querySelector("#teaser-play");
@@ -41,9 +66,14 @@ const dialogTitle = document.querySelector("#figure-dialog-title");
 if (dialog && typeof dialog.showModal === "function") {
   document.querySelectorAll("[data-figure]").forEach((button) => {
     button.addEventListener("click", () => {
-      dialogImage.src = button.dataset.figure;
+      dialogImage.src = window.matchMedia("(max-width: 600px)").matches
+        ? button.dataset.mobileFigure || button.dataset.figure
+        : button.dataset.figure;
       dialogImage.alt = button.closest("figure").querySelector("img").alt;
       dialogTitle.textContent = button.dataset.title;
+      dialog.style.backgroundColor = getComputedStyle(
+        button.closest(".section"),
+      ).backgroundColor;
       dialog.showModal();
       document.body.classList.add("modal-open");
     });
@@ -87,7 +117,7 @@ if (copyButton && citation) {
       copyStatus.textContent = "BibTeX citation copied to clipboard.";
       clearTimeout(copyReset);
       copyReset = setTimeout(() => {
-        copyButton.querySelector("span").textContent = "Copy citation";
+        copyButton.querySelector("span").textContent = "Copy BibTeX";
       }, 2500);
     } catch {
       // File previews and some browsers disable the Clipboard API. Select the
